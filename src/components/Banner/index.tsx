@@ -25,17 +25,17 @@ export const Banner = () => {
 
 
     return (<div className="banner">
-        <div className="conteudo">
-            <button className="conteudo-icon-menu">
-                <FontAwesomeIcon icon={faBars} size="2xl"/>
-            </button>
-            <div className="conteudo-text">
-                {dataFormatada}
-            </div>
-            <button className="conteudo-icon-login">
-                <FontAwesomeIcon icon={faCircleUser} size="2xl"/>
-            </button>
+
+        <button className="conteudo-icon-menu">
+            <FontAwesomeIcon icon={faBars} size="2xl" />
+        </button>
+        <div className="conteudo-text">
+            {dataFormatada}
         </div>
+        <button className="conteudo-icon-login">
+            <FontAwesomeIcon icon={faCircleUser} size="2xl" />
+        </button>
+
     </div>
     )
 }

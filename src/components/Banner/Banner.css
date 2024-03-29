@@ -7,24 +7,24 @@
 
 .banner{
     display: flex;
+    width: 100%;
     background-color: #4755F5;
     height: 20vh;
     justify-content: space-between;
     align-items: center;
-}
-
-.conteudo {
-    display: flex;
     color: white;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    gap: 800px;
 }
 
 .conteudo-text{
     font-size: 32px;
     font-family: var(--font-montserrat);
+}
+
+.conteudo-icon-login{
+    margin-right: 5%;
+}
+.conteudo-icon-menu{
+    margin-left: 5%;
 }
 
 button{
