@@ -1,0 +1,58 @@
+* {
+    box-sizing: border-box;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.input {
+    width: 400px;
+    max-width: 100%;
+    position: relative;
+}
+
+.input-tarefa {
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.input-tarefa:focus {
+    outline: 2px solid white;
+}
+
+.input-tarefa::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.input-button {
+    border: none;
+    cursor: pointer;
+}
+
+.input-button:hover {
+    opacity: 0.8;
+}
+
+.input input {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid white;
+    border-radius: 50px;
+    padding: 1rem 2rem;
+    width: 100%;
+}
+
+.input button {
+    background: white;
+    color: #373FD9;
+    border-radius: 50px;
+    aspect-ratio: 1;
+    height: 80%;
+    
+    position: absolute;
+    top: 10%;
+    right: 5px;
+}

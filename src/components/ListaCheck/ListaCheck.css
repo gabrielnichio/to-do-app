@@ -1,11 +1,32 @@
-.body{
-    background-color: #4755F5;
-    height: 100vh;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&family=Roboto+Mono&display=swap');
+
+:root{
+    --font-montserrat: 'Montserrat', sans-serif;
+    --font-roboto: 'Roboto Mono', monospace;
 }
 
-.lista{
-    background-color: white;
-    height: 100vh;
-    border-top-left-radius: 3%;
-    /* border-top-right-radius: 3%; */
+.tarefa {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    background-color: #ef96ff;
+    border-radius: 1rem;
+    margin: 2rem 1rem 0 1rem;
+}
+
+.texto{
+    padding-left: 1rem;
+}
+
+.texto p {
+    font-family: var(--font-roboto);
+    font-size: 18px;
+}
+
+.botoes {
+    padding-right: 1rem;
+}
+
+.edit {
+    padding-right: 1rem;
 }
