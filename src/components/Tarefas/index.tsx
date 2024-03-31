@@ -4,6 +4,7 @@ import { ITarefa } from "../../interfaces/ITarefa";
 import { v4 as uuidv4 } from 'uuid';
 import { Formulario } from "../Formulario";
 import { ListaCheck } from "../ListaCheck";
+import { Edicao } from "../Edicao";
 uuidv4()
 
 export const Tarefas = () => {
@@ -20,10 +21,27 @@ export const Tarefas = () => {
         setListaTarefas(listaComTarefaRemovida);
     }
 
+    const editaTarefa = (id: string) => {
+        setListaTarefas(listaTarefas.map(tarefa => tarefa.id === id ? { ...tarefa, isEditing: !tarefa.isEditing } : tarefa));
+    }
+
+    const modificaTarefa = (name: string, id: string) => {
+        setListaTarefas(listaTarefas.map(tarefa => tarefa.id === id ? {...tarefa, name, isEditing: !tarefa.isEditing} : tarefa))
+    }
+
+    const tarefaFinalizada = (id: string) => {
+        setListaTarefas(listaTarefas.map(tarefa => tarefa.id === id ? { ...tarefa, complete: !tarefa.complete } : tarefa));
+    }
+
     return (
         <div className="tarefas">
-                <Formulario cadastraTarefa={cadastraTarefa} />
-                <ListaCheck listaTarefas={listaTarefas} removeTarefa={removeTarefa}/>
+            <h1>Tarefas</h1>
+            <Formulario cadastraTarefa={cadastraTarefa} />
+            {listaTarefas.map((tarefa, index) =>
+                tarefa.isEditing ? (<Edicao modificaTarefa={modificaTarefa} tarefaDefault={tarefa} key={index}/>) :
+                (<ListaCheck tarefa={tarefa} key={index} removeTarefa={removeTarefa} tarefaFinalizada={tarefaFinalizada} editaTarefa={editaTarefa} />)
+            )}
+
         </div>
     )
 }

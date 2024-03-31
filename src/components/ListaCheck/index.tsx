@@ -5,36 +5,23 @@ import { faPenToSquare } from '@fortawesome/free-regular-svg-icons';
 import { ITarefa } from "../../interfaces/ITarefa";
 
 interface ListaCheckProps {
-    listaTarefas: ITarefa[];
+    tarefa: ITarefa;
     removeTarefa: (id: string) => void;
+    tarefaFinalizada: (id: string) => void;
+    editaTarefa: (id: string) => void;
 }
 
-export const ListaCheck = ({ listaTarefas, removeTarefa }: ListaCheckProps) => {
-
-
+export const ListaCheck = ({ tarefa, removeTarefa, tarefaFinalizada, editaTarefa }: ListaCheckProps) => {
     return (
-        <div className="lista">
-            <div className="tarefa">
-                <p>Trabalhar</p>
-                <div className="botoes">
-                    <FontAwesomeIcon icon={faPenToSquare} className="edit" />
-                    <FontAwesomeIcon icon={faTrashCan} className="remove" />
-                </div>
+        <div className="tarefa" id={tarefa.id}>
+            <div className="texto">
+                <p onClick={() => tarefaFinalizada(tarefa.id)} className={`${tarefa.complete ? "completed" : ""}`}>{tarefa.name}</p>
             </div>
-
-            {listaTarefas.map(tarefa => {
-                return (
-                    <div className="tarefa" id={tarefa.id} key={tarefa.id}>
-                        <div className="texto">
-                            <p>{tarefa.name}</p>
-                        </div>
-                        <div className="botoes">
-                            <FontAwesomeIcon icon={faPenToSquare} className="edit" />
-                            <FontAwesomeIcon icon={faTrashCan} className="remove" onClick={() => removeTarefa(tarefa.id)} />
-                        </div>
-                    </div>
-                )
-            })}
+            <div className="botoes">
+                <FontAwesomeIcon icon={faPenToSquare} className="edit" onClick={() => editaTarefa(tarefa.id)} />
+                <FontAwesomeIcon icon={faTrashCan} className="remove" onClick={() => removeTarefa(tarefa.id)} />
+            </div>
         </div>
     )
+
 }
